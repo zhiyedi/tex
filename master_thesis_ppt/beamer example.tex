@@ -70,28 +70,31 @@
 \section{背景介绍}
 
 \begin{frame}[plain]
-	\begin{Theorem}
-		（Hilbert第五问题）局部欧的拓扑群是李群.
-	\end{Theorem}
-	这个问题最终在1952年被Deane Montgomery, Leo Zippin和Andrew M. Gleason解决. Gleason证明了有限维没有小子群(no small subgroups)的局部紧群是李群,而Montgomery和Zippin的结果蕴含着局部欧的拓扑群没有小子群,两者结合便得到了Hilbert第五问题的答案. 2010年, Goldbring用非标准分析的方法也得到了一个新的证明.
-\end{frame}
-
-\begin{frame}[plain]
-	\frametitle{Hilbert第五问题}
+	\frametitle{背景介绍}
 	\begin{Definition}
 		一个拓扑群$G$是一个集合,这个集合首先是一个拓扑空间,同时也是一个群,并且群乘法$(g_1,g_2)\to g_1g_2(\forall g_1,g_2\in G)$是一个$G \times G$到$G$的连续映射,同时逆运算$g\to g^{-1}(\forall g\in G)$是$G$到$G$的连续映射.
 	\end{Definition}
 
-	如果拓扑群$G$还是一个光滑流形(不要求流形是第二可数的),群乘法和逆运算都是光滑的,则$G$是一个李群,如果额外要求流形是解析的,并且群乘法和逆运算都是解析的,则称$G$是一个解析李群.
-
-	\begin{Theorem}
-		（Hilbert第五问题）局部欧的拓扑群是李群.
-	\end{Theorem}
-	
+	如果拓扑群$G$还是一个光滑流形(不要求流形是第二可数的),群乘法和逆运算都是光滑的,则$G$是一个李群,如果额外要求流形是解析的,并且群乘法和逆运算都是解析的,则称$G$是一个解析李群.显然李群是拓扑群,反之,什么样的拓扑群是李群呢?
 \end{frame}
 
 \begin{frame}[plain]
-	\frametitle{Hilbert第五问题}
+	\frametitle{背景介绍}
+
+	\begin{Theorem}[Hilbert第五问题]
+		局部欧的拓扑群是李群.
+	\end{Theorem}
+	1952年Gleason证明了有限维没有小子群(no small subgroups)的局部紧群是李群.同年Montgomery和Zippin的结果蕴含着局部欧的拓扑群没有小子群,两者结合便得到了Hilbert第五问题的答案. 
+	
+	2010年, Goldbring用非标准分析的方法也得到了一个新的证明.
+	\begin{Theorem}[Gleason-Yamabe定理]
+		$G$是一个局部紧群,则对于$G$的每个单位连通邻域$U$,都存在一个$G$的子群$G'$和一个$G'$的紧正规子群$K$,其中$G'$是开子群, $K\subset U$,则$G'/K$同构于一个李群.
+	\end{Theorem}
+	1953年, Yamabe将Gleason的结果中的有限维条件去掉了,并且得到了Gleason-Yamabe定理.
+\end{frame}
+
+\begin{frame}[plain]
+	\frametitle{背景介绍}
 	\begin{example}
 		任何群取离散拓扑,都是$0$维李群.有理数加法群$\mathbb{Q}$取实直线诱导的子拓扑是一个拓扑群,其连通分支是单点集,并且其任意一个开集都不能同胚于一个欧式空间的开集,所以不是李群.
 	\end{example}
@@ -103,343 +106,60 @@
 	\end{example}
 \end{frame}
 
+\begin{frame}[plain]
+	\frametitle{背景介绍}
+
+	\begin{block}{Hilbert-Smith猜想v1}
+		如果局部紧群$G$能连续且忠实地作用在一个连通流形上,则$G$同构一个李群.
+	\end{block}
+	这个猜想还有几个等价的版本,这里再给出一个.
+	\begin{block}{Hilbert-Smith猜想v2}
+		任意连通流形上都不存在$p-adic$整数$\mathbb{Z}_p$的忠实作用.
+	\end{block}
+
+	2013年,Pardon解决了这个连通流形是三维的Hilbert-Smith猜想.
+\end{frame}
+
+\section{基本概念}
 
 \begin{frame}[plain]
 	\frametitle{基本概念}
-
-\begin{Theorem}
-(i) 设$A$为一个左对称代数,则交换子\[[x,y]=xy-yx, \forall x,y\in A.\]
-自然定义了一个李代数$g(A)$,其被称为$A$的邻接李代数,同时$A$被称为李代数$g(A)$上的一个可兼容的左对称代数结构.
-
-(ii) 对于任意左对称代数$A$,自然的可以定义左乘算子与右乘算子,\[L:A\rightarrow gl(A), L(x)(y)=xy;\quad R:A\rightarrow gl(A), R(x)(y)=yx.\]
-由此方程\text{(1)}可等价的表示为
-\begin{equation}
-[L(x),L(y)]=L([x,y]), \forall x,y\in g(A).
-\end{equation}
-\end{Theorem}
+	\begin{Definition}
+		局部拓扑群,或者简称为局部群:$G$是一个拓扑空间, $\Omega\subset G\times G,\Lambda\subset G$, $e\in G$, $*$是一个从$\Omega$到$G$的连续映射（称*为$G$中的乘法）, $\tau$是一个从$\Lambda$到$G$的连续映射（称$\tau$为$G$中的取逆运算）,称$(G,\Omega,\Lambda,e,*,\tau)$或$G$为局部群是指满足下面这些性质
+		\begin{enumerate}
+			\item[\textnormal{(1)}]$\Omega$和$\Lambda$分别是$G\times G$和$G$中的开集,并且$\left\{e\right\}\times G \subset \Omega,G\times \left\{e\right\} \subset \Omega,e\in \Lambda$.
+			\item[\textnormal{(2)}]如果$a,b,c\in G$,且$a*(b*c)$和$(a*b)*c$这两项都有定义,则$a*(b*c)=(a*b)*c$.（允许其中一项有定义,而另一项没有定义）
+			\item[\textnormal{(3)}]$\forall g\in G,e*g=g*e=g$.
+			\item[\textnormal{(4)}]$\forall h\in \Lambda,h*\tau(h)=\tau(h)*h=e$.
+		\end{enumerate}
+	\end{Definition}
+	显然一个拓扑群自然是一个局部群,将一个拓扑群$G$的乘法运算和取逆运算限制到一个单位开邻域$V$上,则$V$是一个局部群.如果两个局部群在一个充分小的单位邻域上是一样的,则认为这两个局部群是同构的.如果$G$是一个光滑流形, $*$和$\tau$都是光滑的,那么$G$称为一个局部李群.
 \end{frame}
 
-\begin{frame}
+\begin{frame}[plain]
 	\frametitle{基本概念}
-一个左对称代数可以自然定义一个李代数,那么一个自然的问题是,李代数上是否一定有左对称代数结构.
+	\begin{Definition}
+		假设$\varphi:G\to H$是两个局部群$G,H$之间的连续映射, $\varphi$是局部群同态是指$\varphi$满足下面这些性质
+		\begin{enumerate}
+			\item[\textnormal{(1)}]保持单位元$\varphi(e_G)=e_H$.
+			\item[\textnormal{(2)}]保持逆运算$\varphi(g^{-1})=(\varphi(g))^{-1}$,因为局部群不是封闭的,所以还要要求$g^{-1},(\varphi(g))^{-1}$都有定义.
+			\item[\textnormal{(3)}]如果$g,h\in G$并且$gh$有定义, $\varphi(g)\varphi(h)$也有定义,则$\varphi(g)\varphi(h)=\varphi(gh)$.
+		\end{enumerate}
+	\end{Definition}
 
-实际上,半单李代数上是没有左对称代数结构的.寻求三维以下的李代数上的左对称代数结构有较完善的结果方法,但在更高的维度上,这一课题的一般理论还正在发展中.
-
+	类似的还可以把李群上的左不变向量场和李代数都推广到局部上.
 \end{frame}
 
-
-
-
-
-\begin{frame}
+\begin{frame}[plain]
 	\frametitle{基本概念}
-	左对称代数$A$的一些子类也被广大学者研究,在各个几何或数学物理等领域都有重要的作用,主要的有以下几个子类.
-
-	\begin{itemize}
-	  \item[(1)] 结合代数:定义的结合子 $(x,y,z)$等于0；
-	  \item[(2)] 完备左对称代数:对$\forall x\in A$,右乘算子$R(x)$是幂零的
-	  
-	  \begin{center}
-		判定定理:对任意的$x\in A, tr(R(x))=0 \Leftrightarrow$ 左对称代数$A$是完备的；
-	  \end{center}
-	  \item[(3)] 左对称导子代数与左对称内导子代数:当左对称代数$A$对$\forall x\in A$,有$L(x)$或者$R(x)$为子伴随李代数$g(A)$的一个导子（内导子）；
-	  \item[(4)] Novikov代数:当左对称代数$A$满足条件
-	  $$(xy)z=(xz)y,\forall x,y,z\in A.$$即Novikov代数是右乘算子可交换的左对称李代数；
-	  \item[(5)] 双对称代数:当左对称代数$A$在相同的乘积下满足右对称.
-	\end{itemize}
+	\begin{Theorem}
+		如果在局部欧的拓扑群$G$的某个单位开邻域$U$内, $V$是对称邻域,并且$V^2\subset U$,将拓扑群的乘法和取逆运算限制到$V$上,使得$V$成为一个局部群.如果$V$是一个解析的局部李群,那么$G$有解析李群结构.
+	\end{Theorem}
+	如果拓扑群是一个局部(local)李群,那么它也是一个整体(global)李群.
 \end{frame}
 
 \section{Gleason-Yamabe定理}
-\begin{frame}
-	\frametitle{基本概念}
-	\begin{definition}
-	广义Oscillator李代数$\mathfrak{g}_m(\boldmath{\lambda})=\mathfrak{g}_m(\lambda_1,\cdots,\lambda_m)$是以$(P,X_1,\cdots,X_m,Y_1,\cdots,Y_m,Q)$为基底,满足以下非零交换关系的实$(2m+2)$维实可解李代数：
-	$$ [X_i,Y_i]=P,\quad [X_i,Q]=-\lambda_iY_i,\quad [Y_i,Q]=\lambda_iX_i .\quad \lambda_i\in\mathbb{R}^+.  $$
-    \end{definition}
-此类李代数是唯一一类可容许一个双不变Lorentzian度量的非交换可解李代数.几何上,Oscillator李群$G_m(\boldmath{\lambda})$是以$\mathfrak{g}_m(\boldmath{\lambda})$为李代数的连通单连通李群.这类李群是唯一的可容许一个双不变Lorentzian度量的连通单连通非交换的可解李群.
-
-特别的,在同构意义下仅有一个四维的Oscillator李代数,在后文中Oscillator李代数特指四维情形	
-$$L=<e_1,e_2,e_3,e_4|[e_1,e_2]=e_3,[e_4,e_1]=e_2,[e_4,e_2]=-e_1>.$$
-\end{frame}
-
 \section{Hilbert第五问题}
-\subsection{Mohammed Guediri的研究成果}
-\begin{frame}
-	\frametitle{Mohammed Guediri的研究成果}
-	M. Guediri在2014年发展了对给定的低维可解李代数,寻求其上的完备左对称代数结构的方法.应用于Oscillator李代数$L$得到以下两类完备左对称代数:
-
-	$1.A(s,t)$:存在一组实数$s,t$,使得在基底$\{e_1,e_2,e_3,e_4\}$下,非零的左对称关系为:
-	\begin{equation*}\left\{
-	   \begin{array}{l}
-		e_1\cdot e_1=te_3, e_1\cdot e_2=\frac{1}{2}e_3,\\
-		e_2\cdot e_1=-\frac{1}{2}e_3, e_2\cdot e_2=te_3,\\
-		e_4\cdot e_1=e_2, e_4\cdot e_2=-e_1,e_4\cdot e_4=se_3.
-	   \end{array}\right.
-	\end{equation*}
-
-	$2.B_4$:在基底$\{e_1,e_2,e_3,e_4|[e_1,e_2]=e_3,[e_4,e_1]=e_2,[e_4,e_2]=-e_1\}$下,非零的左对称关系为:
-	\begin{equation*}\left\{
-		\begin{array}{l}
-		    e_1\cdot e_1=e_4, e_1\cdot e_2=\frac{1}{2}e_3,\\
-	  e_2\cdot e_1=-\frac{1}{2}e_3, e_2\cdot e_2=e_4,\\
-      e_4\cdot e_1=e_2, e_4\cdot e_2=-e_1.
-		\end{array}\right.
-	 \end{equation*}
-\end{frame}
-
-\subsection{本文的主要结果}
-\begin{frame}
-	\frametitle{本文的主要结果}
-		考虑Oscillator李代数$L=<e_1,e_2,e_3,e_4|[e_1,e_2]=e_3,[e_4,e_1]=e_2,[e_4,e_2]=-e_1>$.用$R_i$表示右乘算子$R_{e_i},L_i$表示左乘算子$L_{e_i},ad_i$表示伴随算子$ad_{e_i}$,其中$1\leq i\leq 4 $.设
-	
-		$$
-		R_{i}=\left(\begin{smallmatrix}
-		R_{11}^{i} & R_{12}^{i} & R_{13}^{i} & R_{14}^{i} \\
-		R_{21}^{i} & R_{22}^{i} & R_{23}^{i} & R_{24}^{i} \\
-		R_{31}^{i} & R_{32}^{i} & R_{33}^{i} & R_{34}^{i} \\
-		R_{41}^{i} & R_{42}^{i} & R_{43}^{i} & R_{44}^{i}
-		\end{smallmatrix}\right).
-		$$
-		\noindent 由$L_i-R_i=ad_i$,可以得到$L_i$.
-
-		考虑$e_2e_4$,其即可表示为$e_2$左乘$e_4$,也可表示为$e_4$右乘$e_2$,所以$L_2$的第四列元素与$R_4$的第二列对应元素相等,即有
-	$$ R_{14}^2+1=R_{12}^4,\ R_{24}^2=R_{22}^4,\ R_{34}^2=R_{32}^4,\ R_{44}^2=R_{42}^4. $$
-	同理可由$e_1e_2$得到 $R_{12}^1=R_{11}^2,\ R_{22}^1=R_{21}^2,\ R_{32}^1+1=R_{31}^2,\ R_{42}^1=R_{41}^2; $
-	由$e_1e_4$得到 $R_{14}^1=R_{11}^4,\ R_{24}^1-1=R_{21}^4,\ R_{34}^1=R_{31}^4,\ R_{44}^1=R_{41}^4, $
-\end{frame}
-
-
-
-\begin{frame}
-	\frametitle{本文的主要结果}
-	
-	$$B=\left(\begin{smallmatrix}
-	B_{11} & 0 & 0 & 0 \\
-	0 & B_{11} & 0 & 0 \\
-	0 & 0 & 0 & B_{11} \\
-	0 & 0 & B_{11} & 0
-	\end{smallmatrix}\right).
-	$$
-	不失一般性,取$B_{11}=1$进行计算.
-	
-	为了计算方便,我们仅考虑$gg=[g, g]=<e_{1}, e_{2}, e_{3}>$的情况.
-	
-	由$[L_1,L_2]=L_3=0$可得如下方程组:
-
-	\begin{equation*}\left\{
-		\begin{array}{l}
-		R_{22}^{2} R_{24}^{1}=0, \\
-		\left(R_{24}^{1}\right)^{2}+R_{24}^{1}-1=0, \\
-		\left(R_{24}^{1}\right)^{2}-3 R_{24}^{1}+1=0, \\
-		R_{14}^{1}=R_{34}^{1}=0.
-		\end{array}
-		\right.
-		\end{equation*}
-		
-		显然该方程组没有解.
-
-\end{frame}
-	
-\begin{frame}
-	\frametitle{本文的主要结果}
-	通过观察计算过程,我们发现对称非退化不变双线性型这一条件过于苛刻,因此我们利用此条件得到的结论$R_3=L_3=0$进行计算,具体如下.
-
-基于假设$R_3=L_3=0,$以及$gg\subset [g,g]=\langle e_1,e_2,e_3 \rangle$,可得
-$$L_1=\left(\begin{smallmatrix}
-R_{11}^{1} & R_{12}^{1} & 0 & R_{14}^{1} \\
-R_{21}^{1} & R_{22}^{1} & 0 & R_{24}^{1}-1 \\
-R_{31}^{1} & R_{32}^{1}+1 & 0 & R_{34}^{1} \\
-0 & 0 & 0 & 0
-\end{smallmatrix}\right),
-L_2=\left(\begin{smallmatrix}
-R_{12}^{1} & R_{12}^{2} & 0 & R_{14}^{2}+1 \\
-R_{22}^{1} & R_{22}^{2} & 0 & R_{24}^{2} \\
-R_{32}^{1} & R_{32}^{2} & 0 & R_{34}^{2} \\
-0 & 0 & 0 & 0
-\end{smallmatrix}\right),L_3=0, L_4=\left(\begin{smallmatrix}
-R_{14}^{1} & R_{14}^{2} & 0 & R_{14}^{4} \\
-R_{24}^{1} & R_{24}^{2} & 0 & R_{24}^{4} \\
-R_{34}^{1} & R_{34}^{2} & 0 & R_{34}^{4} \\
-0 & 0 & 0 & 0
-\end{smallmatrix}\right). $$
-
-接下来考虑左对称结构条件:\[I:[L_1,L_2]=L_3=0;\ II:[L_1,L_4]=-L_2;\ III:[L_2,L_4]=L_1.\]
-由此类条件可以得到由17个未知数构成的27个方程\footnote{$R_{34}^4$未在方程组中显现,因此可以取任意实数},我们以$(i,j)_k,i=1,2,3;j=1,2,4;k=I,II,II$来表示由条件$k$中的$(i,j)$元得到的方程,如
-\[(1,2)_I:R_{11}^1R_{12}^2+R_{12}^1R_{22}^2-R_{12}^1R_{12}^1-R_{12}^2R_{22}^1=0.\]
-\end{frame}
-
-\begin{frame}[plain]
-	\frametitle{本文的主要结果}
-	观察上述矩阵的性质,通过计算可以解出某些未知数,同时能得到一些关系方程,具体过程如下.
-
-	\noindent 由$(1,1)_{II},(2,2)_{II}$可得
-	$$R_{12}^1+R_{22}^2=0.\eqno(1)$$
-	由$(1,1)_{III},(2,2)_{III}$可得
-	$$R_{11}^1+R_{22}^1=0.\eqno(2)$$
-	将方程(1)与(2)代入$(1,2)_I$及$(2,1)_I$可得
-	$$R_{11}^1R_{12}^2=(R_{12}^1)^2.\eqno(3)$$
-	$$R_{12}^1R_{21}^1=-(R_{11}^1)^2.\eqno(4)$$
-	联立方程$(1,4)_I$与$(2,4)_I$可得
-	$$2R_{11}^1R_{12}^1(R_{24}^2-R_{14}^1)=0.\eqno(5) $$
-	经过对方程(5)的讨论,可得Oscillator李代数上的左对称代数结构由以下方程组决定.
-\end{frame}
-
-\begin{frame}
-	\frametitle{本文的主要结果}
-
-	\begin{equation*}\left\{
-	\begin{array}{l}
-	R_{11}^1=R_{12}^1=R_{21}^1=R_{22}^1=R_{14}^1=R_{12}^2=R_{22}^2=R_{24}^2=0,\\
-	R_{24}^1=1,\\
-	R_{32}^1=-\frac{1}{2},\\
-	R_{14}^2=-1,\
-	R_{31}^1=R_{32}^2,\\
-	R_{24}^4+2R_{31}^1R_{14}^4+2R_{34}^2=0,\\
-	-R_{14}^4+2R_{31}^1R_{24}^4-2R_{34}^1=0,\\
-	R_{34}^4=s.\quad s\in \mathbb{R}
-	\end{array}
-	\right. \eqno(6)
-	\end{equation*}	
-
-	上述方程组得到右乘矩阵(有五个未知元$(R_{31}^{1},R_{34}^{1},R_{34}^{2},R_{14}^{4},R_{24}^{4})$)
-	$$R_1=\left(\begin{smallmatrix}
-	0 & 0 & 0 & 0 \\
-	0 & 0 & 0 & 1 \\
-	R_{31}^{1} & -\frac{1}{2} & 0 & R_{34}^{1} \\
-	0 & 0 & 0 & 0
-	\end{smallmatrix}\right),
-	R_2=\left(\begin{smallmatrix}
-	0 & 0 & 0 & -1 \\
-	0 & 0 & 0 & 0 \\
-	\frac{1}{2} & R_{31}^{1} & 0 & R_{34}^{2} \\
-	0 & 0 & 0 & 0
-	\end{smallmatrix}\right),R_3=0,R_4=\left(\begin{smallmatrix}
-	0 & 0 & 0 & R_{14}^{4} \\
-	0 & 0 & 0 & R_{24}^{4} \\
-	R_{34}^{1} & R_{34}^{2} & 0 & s \\
-	0 & 0 & 0 & 0
-	\end{smallmatrix}\right).$$
-	据完备左对称代数的判定条件,由$tr(R_i)=0$,可知该类左对称代数结构是完备的.
-\end{frame}
-
-\begin{frame}[plain]
-	\frametitle{本文的主要结果}
-	\begin{Example}
-		取$R_{31}^1=R_{34}^1=R_{24}^4=1,\ R_{14}^4=0,\ R_{34}^2=-\frac{1}{2}$,则由上述结果,可取得Oscillator李代数上的一类左对称代数,其满足以下方程组.
-		
-		\begin{equation*}\left\{
-		\begin{array}{l}
-		[e_1,e_2]=e_3,[e_4,e_1]=e_2,[e_4,e_2]=-e_1,\\
-		e_1e_1=e_3,e_1e_2=\frac{1}{2}e_3,e_1e_4=e_3,\\
-		e_2e_1=-\frac{1}{2}e_3,e_2e_2=e_3,e_2e_4=-\frac{1}{2}e_3,\\
-		e_4e_1=e_2+e_3,e_4e_2=-e_1-\frac{1}{2}e_3,e_4e_4=e_2+se_3.
-		\end{array}
-		\right.
-		\end{equation*}
-
-该例子显然不包含在Mohammed Guediri给出的两类中.
-	
-	\end{Example}
-\end{frame}
-
-\begin{frame}
-	\frametitle{本文的主要结果}
-	下面我们尝试得出Oscillator李代数上的非完备左对称代数结构.
-	通过观察上述结果,我们发现$R_{44}^4$对计算过程的影响不大,同时该元素若是非零的,则可以使$tr(R_4)\neq 0$,从而得到一类非完备的左对称代数结果,具体计算过程如下.设
-	$$L_1=\left(\begin{smallmatrix}
-	0 & 0 & 0 & 0 \\
-	0 & 0 & 0 & 0 \\
-	R_{31}^{1} & \frac{1}{2} & 0 & R_{34}^{1} \\
-	R_{41}^{1} & R_{42}^{1} & 0 & R_{44}^{1}
-	\end{smallmatrix}\right),
-	L_2=\left(\begin{smallmatrix}
-	0 & 0 & 0 & 0 \\
-	0 & 0 & 0 & 0 \\
-	-\frac{1}{2} & R_{31}^{1} & 0 & R_{34}^{2} \\
-	R_{42}^{1} & R_{42}^{2} & 0 & R_{44}^{2}
-	\end{smallmatrix}\right), L_3=0, L_4=\left(\begin{smallmatrix}
-	0 & -1 & 0 & R_{14}^{4} \\
-	1 & 0 & 0 & R_{24}^{4} \\
-	R_{34}^{1} & R_{34}^{2} & 0 & s \\
-	R_{44}^{1} & R_{44}^{2} & 0 & R_{44}^{4}
-	\end{smallmatrix}\right).$$
-	考虑左对称结构条件
-	\[I:[L_1,L_2]=L_3=0;\ II:[L_1,L_4]=-L_2;\ III:[L_2,L_4]=L_1.\]
-	以$(i,j)_k,i=1,2,3;j=1,2,4;k=I,II,II$来表示由条件$k$中的$(i,j)$元得到的方程.
-\end{frame}
-
-\begin{frame}[plain]
-	\frametitle{本文的主要结果}
-	假设$R_{14}^4\neq 0,\ R_{24}^4\neq 0$,则由方程$(1,1)_I,(1,2)_I,(1,4)_I$,以及方程$(1,2)_{II},(1,4)_{II}$,可得
-	$$R_{41}^1=R_{42}^1=R_{44}^1=R_{42}^2=R_{44}^2=0. $$
-	代入剩余方程组可得
-\begin{equation*}\left\{
-\begin{array}{l}
-R_{31}^1R_{14}^4+\frac{1}{2}R_{24}^4+R_{34}^1R_{44}^4+R_{34}^2=0,\\
-R_{31}^1R_{24}^4+-\frac{1}{2}R_{14}^4+R_{34}^2R_{44}^4-R_{34}^1=0,\\
-R_{31}^1=R_{32}^2,\\
-R_{34}^{4}=s\in\mathbb{R}.
-\end{array}
-\right.\eqno(7)
-\end{equation*}
-
-特别的当$R_{14}^4\neq 0,\ R_{24}^4=0$,可以得到$R_{41}^1=R_{42}^1=R_{44}^1=R_{42}^2=R_{44}^2=0 $.
-
-综上所述,上述方程组刻画了Oscillator李代数上的一类左对称代数结构,由受限于方程(7)的六元组$(R_{31}^1,R_{34}^1,R_{34}^2,R_{14}^4,R_{24}^4,R_{44}^4)$刻画.
-\end{frame}
-
-\begin{frame}[plain]
-	\frametitle{本文的主要结果}
-	\begin{Example}
-		取$R_{31}^1=R_{44}^4=2,R_{34}^1=R_{34}^2=R_{14}^4=R_{24}^4=0$,则由上述结果,可令Oscillator李代数上的一类左对称代数,其满足以下方程组
-		
-		\begin{equation*}\left\{
-		\begin{array}{l}
-		[e_1,e_2]=e_3,[e_4,e_1]=e_2,[e_4,e_2]=-e_1,\\
-		e_1e_1=2e_3,e_1e_2=\frac{1}{2}e_3,\\
-		e_2e_1=-\frac{1}{2}e_3,e_2e_2=2e_3,\\
-		e_4e_1=e_2,e_4e_2=-e_1,e_4e_4=se_3+2e_4.
-		\end{array}
-		\right.
-		\end{equation*}
-		
-		$$L_1=\left({\begin{smallmatrix}
-			 0 & 0 & 0 & 0 \\
-			 0 & 0 & 0 & 0  \\
-			 2 & \frac{1}{2} & 0 & 0  \\
-			 0 & 0 & 0 & 0
-			\end{smallmatrix}} \right),\quad L_2=\left({\begin{smallmatrix}
-			 0 & 0 & 0 & 0 \\
-			 0 & 0 & 0 & 0  \\
-			 -\frac{1}{2} & 2 & 0 & 0  \\
-			 0 & 0 & 0 & 0
-			\end{smallmatrix}} \right),\quad L_3=0,\quad L_4=\left({\begin{smallmatrix}
-			 0 & -1 & 0 & 0 \\
-			 1 & 0 & 0 & 0  \\
-			 0 & 0 & 0 & s  \\
-			 0 & 0 & 0 & 2
-			\end{smallmatrix}} \right).$$
-		
-		$$R_1=\left({\begin{smallmatrix}
-			 0 & 0 & 0 & 0 \\
-			 0 & 0 & 0 & 1  \\
-			 2 & -\frac{1}{2} & 0 & 0  \\
-			 0 & 0 & 0 & 0
-			\end{smallmatrix}} \right),\quad R_2=\left({\begin{smallmatrix}
-			 0 & 0 & 0 & -1 \\
-			 0 & 0 & 0 & 0  \\
-			 \frac{1}{2} & 2 & 0 & 0  \\
-			 0 & 0 & 0 & 0
-			\end{smallmatrix}} \right),\quad R_3=0,\quad R_4=\left({\begin{smallmatrix}
-			 0 & 0 & 0 & 0 \\
-			 0 & 0 & 0 & 0  \\
-			 0 & 0 & 0 & s  \\
-			 0 & 0 & 0 & 2
-			\end{smallmatrix}} \right).$$
-		因为$tr(R_4)=2$,所以此类左对称代数是Oscillator李代数上的一类非完备左对称代数.
-		\end{Example}
-\end{frame}
-
 \begin{frame}
 	\zihao{-2}\centering{\textbf{谢谢各位专家的聆听！}}
 \end{frame}
